@@ -1,7 +1,6 @@
 ---
 title: "SQL을 배워봅시다_1편"
 subtitle: "DB설치 및 계정활성"
-author: "orezmis"
 date: 2020-10-22
 categories: SQL
 tags: SQL
