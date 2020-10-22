@@ -5,6 +5,7 @@ author: "orezmis"
 date: 2020-10-22
 categories: SQL
 tags: SQL
+author_profile: true
 toc: true
 toc_sticky: true
 ---
@@ -31,7 +32,7 @@ Oracle database는 Oracle 공식 홈페이지에서 다운받을 수 있습니�
 
 >[scott.sql 다운로드](/assets/scott.sql)
 
-__위 파일은 가상의 회사 환경을 구축하여, SCOTT 이라는 인사담당자의 계정으로 회사내의 각종 인사/급여 정보들을 데이터베이스에 저장하여 우리가 쉽고 빠르게 회사 데이터를 갱신, 검색, 수정, 삭제끔 하도록 하는 기초 파일입니다.__
+_위 파일은 가상의 회사 환경을 구축하여, SCOTT 이라는 인사담당자의 계정으로 회사내의 각종 인사/급여 정보들을 데이터베이스에 저장하여 우리가 쉽고 빠르게 회사 데이터를 갱신, 검색, 수정, 삭제끔 하도록 하는 기초 파일입니다._
 
 ![이곳이 C: 아래이다.](/assets/images/OracleSQL/chap1/3.PNG)
 
