@@ -38,7 +38,7 @@ sql 확장자가 붙은 파일은 메모장으로 열어 볼 수 있습니다. �
 ## Database 실행
 윈도우 10 기준으로, 검색창에서 <span style="background-color: #e1e1ea">CMD 프로그램</span>을 찾아 <span style="background-color: #e1e1ea">"관리자 권한으로 열기"</span> 로 실행합니다.
 
-![관리자 권한 실행](/assets/images/OracleSQL/chap1/4.PNG)
+![관리자 권한 실행](/assets/images/OracleSQL/chap1/4.png)
 
 CMD 창에서 아래와 같이 타이핑을 합시다:
 
@@ -86,7 +86,6 @@ User altered.
 ```sql
 -- 입력
 SQL> conn scott/tiger
-
 ```
 ```sql
 -- 결과
