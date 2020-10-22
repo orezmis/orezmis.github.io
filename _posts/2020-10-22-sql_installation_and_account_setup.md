@@ -5,6 +5,8 @@ author: "orezmis"
 date: 2020-10-22
 categories: SQL
 tags: SQL
+toc: true  
+toc_sticky: true 
 ---
 
 ## Database  설치
