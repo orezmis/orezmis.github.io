@@ -83,6 +83,12 @@ body {
 }
 
 .page__content {
+  
+  figure {
+    text-align: center;
+    margin: 10px auto; /* not needed unless you want centered */
+  }
+
   h2 {
     padding-bottom: 0.5em;
     border-bottom: 1px solid $border-color;
