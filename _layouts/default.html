@@ -12,13 +12,6 @@
   <head>
     {% include head.html %}
     {% include head/custom.html %}
-	
-<!-- Following code is to add caption in ![]() and to zoom pictures in contents -->	
-	<script src="/assets/lib/jquery-1.12.0.min.js"></script>
-	<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
-	<script src="/assets/js/index.js"></script>
-<!-- shouldn't the code above written under head? let's try -->	
-	
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
@@ -45,5 +38,10 @@
 
     {% include scripts.html %}
 
+<!-- Following code is to add caption in ![]() and to zoom pictures in contents -->	
+	<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+	<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+	<script src="/assets/js/index.js"></script>
+	
   </body>
 </html>
