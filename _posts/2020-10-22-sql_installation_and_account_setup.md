@@ -18,13 +18,13 @@ Oracle database는 Oracle 공식 홈페이지에서 다운받을 수 있습니�
 
 본 강좌에서 사용하는 버전은 Oracle 11G Express Edition으로, 줄여서 OracleXE11 이라고 합니다. 위 링크에 접속하여 간단한 회원가입을 하시고 다운을 받으시면 됩니다.
 
-![윈도우 64bit, 32bit, 리눅스 버전등 자신의 컴퓨터 시스템에 맞는 버전을 다운 받으면 된다.](/assets/images/OracleSQL/chap1/1.PNG)<br/><br/>
+![윈도우 64bit, 32bit, 리눅스 버전등 자신의 컴퓨터 시스템에 맞는 버전을 다운 받으면 된다.](/assets/images/OracleSQL/chap1/1.PNG){: .align-center}<br/><br/>
 
 설치되는 중간 비밀번호를 입력하라는 화면이 나옵니다. 이것은 오라클 데이터베이스 시스템 관리자 비밀번호를 설정하는것입니다.
 
 본 강습을 따라하면서는 <span style="background-color: #e1e1ea">admin1234</span> 라는 비밀번호를 사용합시다.
 
-![<center>기업에서는 database 최고관리자만 이 비밀번호를 설정 해야한다.</center>](/assets/images/OracleSQL/chap1/7.PNG)<br/><br/>
+![기업에서는 database 최고관리자만 이 비밀번호를 설정 해야한다.](/assets/images/OracleSQL/chap1/7.PNG){: .align-center}<br/><br/>
 
 설치가 완료되면 아래의 <span style="background-color: #e1e1ea">scott.sql</span> 파일을 받아 <span style="background-color: #e1e1ea">c: 바로 아래에 저장</span>합니다.
 
@@ -32,14 +32,14 @@ Oracle database는 Oracle 공식 홈페이지에서 다운받을 수 있습니�
 
 _위 파일은 가상의 회사 환경을 구축하여, SCOTT 이라는 인사담당자의 계정으로 회사내의 각종 인사/급여 정보들을 데이터베이스에 저장하여 우리가 쉽고 빠르게 회사 데이터를 갱신, 검색, 수정, 삭제끔 하도록 하는 기초 파일입니다._
 
-![이곳이 C: 아래이다.](/assets/images/OracleSQL/chap1/3.PNG)<br/><br/>
+![이곳이 C: 아래이다.](/assets/images/OracleSQL/chap1/3.PNG){: .align-center}<br/><br/>
 
 sql 확장자가 붙은 파일은 메모장으로 열어 볼 수 있습니다. 한번 열어보시기를 권장합니다. 지금은 알 수 없는 내용들이 나중에 다시보면 이해가 될 것입니다.
 
 ## 2. Database 실행
 윈도우 10 기준으로, 검색창에서 <span style="background-color: #e1e1ea">CMD 프로그램</span>을 찾아 <span style="background-color: #e1e1ea">"관리자 권한으로 열기"</span> 로 실행합니다.
 
-![관리자 권한 실행](/assets/images/OracleSQL/chap1/4.png)<br/><br/>
+![관리자 권한 실행](/assets/images/OracleSQL/chap1/4.png){: .align-center}<br/><br/>
 
 CMD 창에서 아래와 같이 타이핑을 합시다:
 
