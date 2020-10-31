@@ -24,7 +24,7 @@ Oracle database는 Oracle 공식 홈페이지에서 다운받을 수 있습니�
 
 본 강습을 따라하면서는 <span style="background-color: #e1e1ea">admin1234</span> 라는 비밀번호를 사용합시다.
 
-![기업에서는 database 최고관리자만 이 비밀번호를 설정 해야한다.](/assets/images/OracleSQL/chap1/7.PNG)<br/><br/>
+![<center>기업에서는 database 최고관리자만 이 비밀번호를 설정 해야한다.</center>](/assets/images/OracleSQL/chap1/7.PNG)<br/><br/>
 
 설치가 완료되면 아래의 <span style="background-color: #e1e1ea">scott.sql</span> 파일을 받아 <span style="background-color: #e1e1ea">c: 바로 아래에 저장</span>합니다.
 
