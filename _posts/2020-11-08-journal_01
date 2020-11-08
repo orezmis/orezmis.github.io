@@ -1,0 +1,158 @@
+---
+title: "크롤러 개발과 문제점 해결에 관한 글(1)"
+date: 2020-11-08
+categories: Tech_Journal
+tags: Tech_Journal
+author_profile: true
+toc: true
+toc_sticky: true
+---
+
+## 1. Background
+
+회사에서 이미지 분석을 위해 모든 이미지와 JSON 파일을 클라우드에서 다운받아 로컬드라이브에 저장을 해야한다 하였다.
+
+하나의 이미지 프로젝트 폴더 안에는 최대 2000개의 이미지와 JSON 파일이 있으며, 프로젝트 폴더는 약 2300개 가량이 있다.
+
+JSON 파일 안에는 등록번호 (7자리의 숫자), 출원번호 (13자리의 숫자) 등의 이미지 정보가 들어있으며, 동일한 프로젝트는 동일한 갯수의 JSON 파일과 이미지를 가지고 있다.
+
+
+
+
+## 2. Objective
+
+* 파이썬으로 회사 API를 호출하여 이미지와 JSON을 크롤링하는 간단한 프로그램 제작
+* 크롤링되는 자료들의 이름은 각기 등록된 13자리의 출원번호로 부여해야 한다
+* 오늘은 322번 프로젝트의 자료를 크롤링 해야한다
+
+
+이것에 덧붙여 내가 나름대로 세운 크롤러의 기준은 이러했당:
+
+* 이미지파일, JSON파일 각각 격리된 폴더에 다운받을것
+* 파일이 없을때만 다운받을것 (중복 다운로드 X)
+
+
+
+
+## 3. Codes
+
+정직하게 프로젝트 322의 파일을 순차적으로 크롤링해오는 크롤러다.
+
+```python
+import requests
+import json
+import os
+import random
+import time
+
+
+
+
+# 공통부분
+res = requests.get('http://127.0.0.1:9000/images?id=322')
+r = json.loads(res.text)
+```
+
+
+```requests``` 함수를 사용하여 웹의 내용을 변수에 저장하고, ```json``` 함수를 사용해 변수에 저장된 내용을 json 으로 parsing 한다.
+
+
+
+
+```python
+# json 크롤링
+dir = "./test_set/json"
+fileDetection = dir + "/" + r[random.randrange(len(r))].get("regiName") + ".json"
+
+try:
+    if not os.path.exists(dir):
+        os.makedirs(dir)
+        
+    elif os.path.exists(dir):
+        print("directory alreay exist")
+        
+except OSError:
+    print("Error while creating directory")
+
+try:
+    if not os.path.isfile(fileDetection):
+        for i in range(0, len(r)):
+            raw = json.dumps(r[i], indent=4)
+            fw = open(dir + "//" + str(r[i].get("regiName")) + ".json", "a")
+            fw.write(raw)
+            fw.close()
+            
+    elif os.path.isfile(fileDetection):
+        print("files already exist")
+
+except OSError:
+    print("Error!")
+```
+
+
+```python
+# 이미지 크롤링
+dirimg = "./test_set/imagesave/"
+imgDetection = dirimg + "/" + r[random.randrange(len(r))].get("regiName") + ".jpg"
+
+try:
+    if not os.path.exists(dirimg):
+        os.makedirs(dirimg)
+        
+    elif os.path.exists(dirimg):
+        print("directory alreay exist")
+        
+except OSError:
+    print("Error while creating directory")
+
+    
+try:
+    if not os.path.isfile(imgDetection):
+        for i in range(0, len(r)):
+            url = "http://127.0.0.1:9000/img/322/" + str(r[i].get("id"))
+            img = requests.get(url)
+            open(dirimg + str(r[i].get("regiName")) + ".jpg", 'wb').write(img.content)
+            time.sleep(1) # takes about 30mins to crawl all with 1sec delay
+    
+    elif os.path.isfile(imgDetection):
+        print("too many files to download, no need to duplicate")
+
+except OSError:
+    print("Error!")
+```
+
+
+이미지는 클라우드 상에서 등록번호를 (7자리의 숫자) 기준으로 업로드 되어져 있었기 때문에
+
+```url = "http://127.0.0.1:9000/img/322/" + str(r[i].get("id"))``` 함수를 활용하여 매칭되는 JSON 파일로부터 출원번호를 긁어오도록 하였다.
+
+
+
+또한 JSON 파일과 이미지 파일들은 각각 ```dir = "./test_set/json" ``` 과
+
+```dirimg = "./test_set/imagesave/" ``` 경로에 저장이 된다.
+
+중복다운로드를 방지하기 위해 나름 머리를 굴려보았는데, 바로 ```r[random.randrange(len(r))].get("regiName")``` 부분이다.
+
+변수 r 에는 프로젝트 322에서 크롤링된 모든 JSON 정보가 한 묶음으로 담겨있고,
+
+개별의 JSON 들은 인덱스로 구분되어져 있다.
+
+
+프로젝트 322는 2000개의 이미지와 JSON 파일이 있음으로 ```len(r)``` 으로 2000의 인덱스가 있음을 알 수 있다.
+
+여기에 ```random.randrange()``` 함수로 0 부터 2000까지 임의의 숫자를 받아서
+
+해당 숫자에 대응하는 인덱스에 접근하여 랜덤한 출원번호를 가져오게끔 구현했다.
+
+물론 이것보다 훨씬 더 효율적인 중복탐지 라이브러리가 있을법 하지만 구현해보았다는것에 의의를 두었다.
+
+
+## 4. Problems
+
+* 이미지를 로컬드라이브에 쓸때, 쓰기속도가 다운속도를 따라가지 못해 에러가 발생한다
+* 그것을 방지하기 위해 이미지를 새로 받기 전 1초의 딜레이를 주었지만, 2000개의 이미지를 저장하는데 30분이나 걸린다
+* 오늘은 프로젝트 322만을 받았지만 내가 받아야 할 프로젝트는 약 2300개 이상이다 
+
+
+위 문제를 어떻게 해결하였는지는 다음번 일기에 적도록 하겠당
