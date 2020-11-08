@@ -86,9 +86,9 @@ CMD 창에서 scott 계정에 접속하는것 처럼, 아래와 같이 Oracle SQ
 
 ![복잡해 보이지만 순서대로 진행하면 안될리가 없읍니다.](/assets/images/OracleSQL/chap2/5.PNG)<br/><br/>
 
-![이제 매번 scott/tiger 를 적을 필요 없이, 클릭 한번으로 로그인이 가능합니다.](/assets/images/OracleSQL/chap2/6.PNG)<br/><br/>
+![이제 매번 scott/tiger 를 적을 필요 없이, 클릭 한번으로 로그인이 가능합니다.](/assets/images/OracleSQL/chap2/8.PNG)<br/><br/>
 
-![왼쪽 위의 scott connection이 생성된것이 확인되면 준비가 끝난것 입니다.](/assets/images/OracleSQL/chap2/7.PNG)<br/><br/>
+![왼쪽 위의 scott connection이 생성된것이 확인되면 준비가 끝난것 입니다.](/assets/images/OracleSQL/chap2/9.PNG)<br/><br/>
 
 
 여기까지 잘 마무리 따라하셨다면 이제 정말로 SQL 의 심연속으로 빠질 준비가 된것입니다.
