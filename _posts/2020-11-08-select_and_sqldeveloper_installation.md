@@ -28,7 +28,8 @@ sqlplus scott/tiger
 ```sql
 select * from tab;
 ```
-
+<br/>
+Result:
 |TNAME|TABTYPE|CLUSTERID|
 |---------------------|-------|-------|
 |BONUS|TABLE||
