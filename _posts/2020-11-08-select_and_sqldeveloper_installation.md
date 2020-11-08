@@ -82,7 +82,7 @@ Oracle SQL Developer 는 설치하는 프로그램이 아니고 다운받은 실
 CMD 창에서 scott 계정에 접속하는것 처럼, 아래와 같이 Oracle SQL Developer 에서도 scott 계정에 접속을 해 봅시다.
 
 
-![](/assets/images/OracleSQL/chap2/4.PNG)<br/><br/>
+![](/assets/images/OracleSQL/chap2/4.png)<br/><br/>
 
 ![복잡해 보이지만 순서대로 진행하면 안될리가 없읍니다.](/assets/images/OracleSQL/chap2/5.PNG)<br/><br/>
 
